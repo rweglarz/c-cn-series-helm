@@ -13,6 +13,7 @@
 cluster:
   deployTo: "gke"
   hpa: "no"
+  mm: false
   volumes: "static"
 
 # Firewall tags

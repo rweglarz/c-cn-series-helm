@@ -54,11 +54,13 @@ data:
   PAN_DATA_MODE: {{ .Values.pan_data_mode | quote }}
   {{- end }}
 
+  {{- if .Values.cluster.mm }}
   #HPA Params
-  #PAN_CLOUD: ""
-  #HPA_NAME: "<name>" #unique name to identify hpa resource per namespace or per tenant 
-  #PAN_INSTRUMENTATION_KEY: "<>" #Azure APP Insight Instrumentation Key
-  #PUSH_INTERVAL: "15" #time interval to publish metrics to azure app insight
+  PAN_CLOUD: "{{ .Values.cluster.deployTo | upper }}"
+  HPA_NAME: "{{ .Values.hpa_name }}" #unique name to identify hpa resource per namespace or per tenant 
+  PAN_INSTRUMENTATION_KEY: "{{ .Values.appinsights_key }}" #Azure APP Insight Instrumentation Key
+  PUSH_INTERVAL: "1" #time interval to publish metrics to azure app insight
+  {{- end }}
 
 {{- if eq .Values.cluster.deployTo "eks" }}
   #Certificate signing
