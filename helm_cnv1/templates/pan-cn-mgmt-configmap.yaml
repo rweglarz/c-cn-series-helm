@@ -18,7 +18,9 @@ data:
 
 #Non-mandatory parameters
   # Recommended to have same name as the cluster name provided in Panorama Kubernetes plugin - helps with easier identification of pods if managing multiple clusters with same Panorama
-  #CLUSTER_NAME: "<Cluster name>"
+  {{- if .Values.clusterName }}
+  CLUSTER_NAME: {{ .Values.clusterName | quote }}
+  {{- end }}
 
   #PAN_PANORAMA_IP2: ""
   
