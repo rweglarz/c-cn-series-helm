@@ -111,5 +111,5 @@ spec:
             # below path should match pan-cni's "appinfo_dir" configmap and
             # pan-ngfw-ds's "appinfo" and part of "pan-cni-ready" volumes
             path: /var/log/pan-appinfo
-            type: DirectoryOrCreatei
+            type: DirectoryOrCreate
 {{- end }}
