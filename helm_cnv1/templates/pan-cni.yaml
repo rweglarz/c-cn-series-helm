@@ -5,9 +5,8 @@ metadata:
   name: pan-cni
   # Defining it in kube-system for pan-ngfw-ds. 
   # Do this for each namespace where app pod can be run
-  namespace: kube-system      
----     
-{{- end }}
+  namespace: kube-system
+---
 # This manifest installs the pan install-cni container, as well
 # as the pan CNI plugin and config on
 # each master and worker node in a Kubernetes cluster.
@@ -149,4 +148,4 @@ spec:
             # pan-ngfw-ds's "appinfo" and part of "pan-cni-ready" volumes
             path: /var/log/pan-appinfo
             type: DirectoryOrCreate
-
+{{- end }}
