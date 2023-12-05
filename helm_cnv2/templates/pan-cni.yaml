@@ -37,6 +37,7 @@ spec:
         # if it ever gets evicted.
         paloaltonetworks.com/app: pan-cni
         scheduler.alpha.kubernetes.io/critical-pod: ''
+        checksum/config: {{ include (print $.Template.BasePath "/pan-cni-configmap.yaml") . | sha256sum }}
     spec:
       nodeSelector:
         beta.kubernetes.io/os: linux
