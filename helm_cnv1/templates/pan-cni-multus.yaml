@@ -38,6 +38,7 @@ spec:
         # priority scheduling and that its resources are reserved
         # if it ever gets evicted.
         scheduler.alpha.kubernetes.io/critical-pod: ''
+        checksum/config: {{ include (print $.Template.BasePath "/pan-cni-configmap.yaml") . | sha256sum }}
     spec:
       nodeSelector:
         kubernetes.io/os: linux

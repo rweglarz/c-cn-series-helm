@@ -39,6 +39,7 @@ spec:
         paloaltonetworks.com/app: pan-cni
         {{- end }}
         scheduler.alpha.kubernetes.io/critical-pod: ''
+        checksum/config: {{ include (print $.Template.BasePath "/pan-cni-configmap.yaml") . | sha256sum }}
     spec:
       nodeSelector:
         beta.kubernetes.io/os: linux
