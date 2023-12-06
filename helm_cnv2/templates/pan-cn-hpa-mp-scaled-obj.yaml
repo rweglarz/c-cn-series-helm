@@ -43,7 +43,7 @@ spec:
       metricAggregationType: avg
       # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
       # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
-      metricId: "customMetrics/PAN-HPA-panloggingrate"
+      metricId: "customMetrics/{{ .Values.hpa_name }}-panloggingrate"
       targetValue: "80"
     authenticationRef:
       name: azure-app-insights-trigger-auth
@@ -54,7 +54,7 @@ spec:
 #      metricAggregationType: avg
        # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
        # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
-#      metricId: "customMetrics/PAN-HPA-pandataplaneslots"
+#      metricId: "customMetrics/{{ .Values.hpa_name }}-pandataplaneslots"
 #      targetValue: "80"
 #    authenticationRef:
 #      name: azure-app-insights-trigger-auth

@@ -43,7 +43,7 @@ spec:
       metricAggregationType: avg
       # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
       # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
-      metricId: "customMetrics/PAN-HPA-pansessionactive"
+      metricId: "customMetrics/{{ .Values.hpa_name }}-pansessionactive"
       targetValue: "80"
     authenticationRef:
       name: azure-app-insights-trigger-auth
@@ -54,7 +54,29 @@ spec:
 #      metricAggregationType: avg
        # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
        # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
-#      metricId: "customMetrics/PAN-HPA-dataplanepacketbufferutilization"
+#      metricId: "customMetrics/{{ .Values.hpa_name }}-dataplanepacketbufferutilization"
+#      targetValue: "80"
+#    authenticationRef:
+#      name: azure-app-insights-trigger-auth
+  - type: azure-app-insights
+    metricType: "Value"
+    metadata:
+      metricAggregationTimespan: "0:1"
+      metricAggregationType: avg
+       # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
+       # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
+      metricId: "customMetrics/{{ .Values.hpa_name }}-dataplanecpuutilizationpct"
+      targetValue: "80"
+    authenticationRef:
+      name: azure-app-insights-trigger-auth
+#  - type: azure-app-insights
+#    metricType: "Value"
+#    metadata:
+#      metricAggregationTimespan: "0:1"
+#      metricAggregationType: avg
+       # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
+       # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
+#      metricId: "customMetrics/{{ .Values.hpa_name }}-pansessionutilization"
 #      targetValue: "80"
 #    authenticationRef:
 #      name: azure-app-insights-trigger-auth
@@ -65,7 +87,7 @@ spec:
 #      metricAggregationType: avg
        # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
        # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
-#      metricId: "customMetrics/PAN-HPA-dataplanecpuutilizationpct"
+#      metricId: "customMetrics/{{ .Values.hpa_name }}-pansessionsslproxyutilization"
 #      targetValue: "80"
 #    authenticationRef:
 #      name: azure-app-insights-trigger-auth
@@ -76,7 +98,7 @@ spec:
 #      metricAggregationType: avg
        # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
        # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
-#      metricId: "customMetrics/PAN-HPA-pansessionutilization"
+#      metricId: "customMetrics/{{ .Values.hpa_name }}-panthroughput"
 #      targetValue: "80"
 #    authenticationRef:
 #      name: azure-app-insights-trigger-auth
@@ -87,7 +109,7 @@ spec:
 #      metricAggregationType: avg
        # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
        # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
-#      metricId: "customMetrics/PAN-HPA-pansessionsslproxyutilization"
+#      metricId: "customMetrics/{{ .Values.hpa_name }}-panpacketrate"
 #      targetValue: "80"
 #    authenticationRef:
 #      name: azure-app-insights-trigger-auth
@@ -98,30 +120,9 @@ spec:
 #      metricAggregationType: avg
        # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
        # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
-#      metricId: "customMetrics/PAN-HPA-panthroughput"
-#      targetValue: "80"
-#    authenticationRef:
-#      name: azure-app-insights-trigger-auth
-#  - type: azure-app-insights
-#    metricType: "Value"
-#    metadata:
-#      metricAggregationTimespan: "0:1"
-#      metricAggregationType: avg
-       # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
-       # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
-#      metricId: "customMetrics/PAN-HPA-panpacketrate"
-#      targetValue: "80"
-#    authenticationRef:
-#      name: azure-app-insights-trigger-auth
-#  - type: azure-app-insights
-#    metricType: "Value"
-#    metadata:
-#      metricAggregationTimespan: "0:1"
-#      metricAggregationType: avg
-       # metricId should be of the format customMetrics/<HPA_NAME>-pansessionactive
-       # HPA_NAME should match with the name defined in pan-cn-mgmt-configmap.yaml
-#      metricId: "customMetrics/PAN-HPA-panconnectionspersecond"
+#      metricId: "customMetrics/{{ .Values.hpa_name }}-panconnectionspersecond"
 #      targetValue: "80"
 #    authenticationRef:
 #      name: azure-app-insights-trigger-auth
 #
+{{- end }}
