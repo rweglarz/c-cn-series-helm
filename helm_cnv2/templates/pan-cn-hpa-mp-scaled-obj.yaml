@@ -1,3 +1,4 @@
+{{- if and (eq .Values.cluster.hpa "yes") (eq .Values.cluster.deployTo "aks") }}
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
@@ -57,3 +58,4 @@ spec:
 #      targetValue: "80"
 #    authenticationRef:
 #      name: azure-app-insights-trigger-auth
+{{- end }}

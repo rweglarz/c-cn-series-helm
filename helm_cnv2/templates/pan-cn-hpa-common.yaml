@@ -1,3 +1,4 @@
+{{- if and (eq .Values.cluster.hpa "yes") (eq .Values.cluster.deployTo "aks") }}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -31,3 +32,4 @@ spec:
     - parameter: tenantId
       name: azure-app-insights-secrets
       key: tenantId
+{{- end }}
