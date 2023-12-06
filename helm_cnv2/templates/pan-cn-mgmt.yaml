@@ -165,12 +165,6 @@ spec:
           envFrom:
           - configMapRef:
               name: pan-mgmt-config
-          {{- if (eq .Values.cluster.hpa "yes") }}    
-          # Uncomment the below 3 lines to enable HPA
-          envFrom:
-          - configMapRef:
-              name: pan-hpa-config
-          {{- end }}
           env:
           - name: MY_POD_UID
             valueFrom:
