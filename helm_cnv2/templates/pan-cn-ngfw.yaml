@@ -54,6 +54,22 @@ spec:
           - mgmt
       #nodeSelector:  
       #  firewall: pan-ngfw-ds
+      tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "cn-series"
+        effect: "NoSchedule"
+      affinity:
+       nodeAffinity:
+         preferredDuringSchedulingIgnoredDuringExecution:
+           - weight: 1
+             preference:
+               matchExpressions:
+                 - key: ng
+                   operator: In
+                   values:
+                     - cn
+                     - cnng2
       containers:
         - name: pan-ngfw-container
           image: "{{ .Values.dp.image }}:{{ .Values.dp.version }}"

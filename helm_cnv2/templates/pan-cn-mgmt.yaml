@@ -44,7 +44,22 @@ spec:
       #terminationGracePeriodSeconds: 60 //for graceful exit of prestop hook
       # Turn on podAntiAffinity to schedule replicas on separate nodes
       # Turn off podAntiAffinity to allow scheduling of both replicas on a single node
+      tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "cn-series"
+        effect: "NoSchedule"
       affinity:
+       nodeAffinity:
+         preferredDuringSchedulingIgnoredDuringExecution:
+           - weight: 1
+             preference:
+               matchExpressions:
+                 - key: ng
+                   operator: In
+                   values:
+                     - cn
+                     - cnng2
        podAntiAffinity:
          requiredDuringSchedulingIgnoredDuringExecution:
            - labelSelector:
