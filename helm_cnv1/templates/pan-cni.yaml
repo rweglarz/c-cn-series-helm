@@ -6,7 +6,11 @@ metadata:
   # Defining it in kube-system for pan-ngfw-ds. 
   # Do this for each namespace where app pod can be run
   namespace: kube-system
+
+{{- end }}
 ---
+
+{{- if or (eq .Values.cluster.deployTo "aks") (eq .Values.cluster.multus "gke") }}
 # This manifest installs the pan install-cni container, as well
 # as the pan CNI plugin and config on
 # each master and worker node in a Kubernetes cluster.
@@ -41,7 +45,7 @@ spec:
         checksum/config: {{ include (print $.Template.BasePath "/pan-cni-configmap.yaml") . | sha256sum }}
     spec:
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
       hostNetwork: true
       tolerations:
         # Make sure pan-cni gets scheduled on all nodes.
