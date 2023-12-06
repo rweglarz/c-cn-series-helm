@@ -1,7 +1,7 @@
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
-  name: hpa-dp
+  name: hpa-mp
   namespace: kube-system
 spec:
   scaleTargetRef:
