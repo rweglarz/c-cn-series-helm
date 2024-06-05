@@ -92,7 +92,7 @@ secureInterfaces: ["eth0"]
 ##############################################
 
 #PAN_CLOUD: ""
-hpa_name: "<name>" #unique name to identify hpa resource per namespace or per tenant 
+hpa_name: "" #unique name to identify hpa resource per namespace or per tenant 
 #PAN_INSTRUMENTATION_KEY: "<>" #Azure APP Insight Instrumentation Key
 #PUSH_INTERVAL: "15" #time interval to publish metrics to azure app insight
 
