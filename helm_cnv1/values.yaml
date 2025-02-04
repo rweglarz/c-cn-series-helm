@@ -42,6 +42,7 @@ mp:
   version: preferred-10.2
   cpuLimit: 4
   memoryLimit: 4.0Gi
+  storageClassName: ""
 
 # DP container tags
 dp:

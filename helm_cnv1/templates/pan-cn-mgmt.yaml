@@ -217,6 +217,8 @@ spec:
       selector:
         matchLabels:
             pv: panlogs
+      {{- else if .Values.mp.storageClassName }}
+      storageClassName: {{ .Values.mp.storageClassName }}
       {{- end }}
   - metadata:
       name: varlogpan
@@ -242,6 +244,8 @@ spec:
       selector:
         matchLabels:
             pv: panvarlog
+      {{- else if .Values.mp.storageClassName }}
+      storageClassName: {{ .Values.mp.storageClassName }}
       {{- end }}    
   - metadata:
       name: varcores
@@ -266,6 +270,8 @@ spec:
       selector:
         matchLabels:
             pv: panvarcores
+      {{- else if .Values.mp.storageClassName }}
+      storageClassName: {{ .Values.mp.storageClassName }}
       {{- end }}
   - metadata:
       name: panplugincfg
@@ -290,6 +296,8 @@ spec:
       selector:
         matchLabels:
             pv: panplugincfg
+      {{- else if .Values.mp.storageClassName }}
+      storageClassName: {{ .Values.mp.storageClassName }}
      {{- end }} 
   - metadata:
       name: panconfig
@@ -314,6 +322,8 @@ spec:
       selector:
         matchLabels:
             pv: panconfig
+      {{- else if .Values.mp.storageClassName }}
+      storageClassName: {{ .Values.mp.storageClassName }}
      {{- end }} 
   - metadata:
       name: panplugins
@@ -338,4 +348,6 @@ spec:
       selector:
         matchLabels:
             pv: panplugins
+      {{- else if .Values.mp.storageClassName }}
+      storageClassName: {{ .Values.mp.storageClassName }}
       {{- end }}   
