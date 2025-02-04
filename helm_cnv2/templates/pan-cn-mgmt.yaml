@@ -332,7 +332,7 @@ spec:
           {{- if eq .Values.cluster.deployTo "ack" }}
           storage: 20Gi
           {{- else }}
-          storage: 8Gi
+          storage: 16Gi
           {{- end }}
       {{- if and (eq .Values.cluster.volumes "static") (eq .Values.cluster.deployTo "native") }}
       # Note: Use of dynamically provisioned PVs is strongly recommend.
@@ -362,7 +362,7 @@ spec:
           {{- if eq .Values.cluster.deployTo "ack" }}
           storage: 20Gi
           {{- else }}
-          storage: 200Mi
+          storage: 1Gi
           {{- end }}
       {{- if and (eq .Values.cluster.volumes "static") (eq .Values.cluster.deployTo "native") }}
       # Note: Use of dynamically provisioned PVs is strongly recommend.

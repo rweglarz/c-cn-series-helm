@@ -297,7 +297,7 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 8Gi
+          storage: 16Gi
       {{- if and (eq .Values.cluster.volumes "static") (eq .Values.cluster.deployTo "native") }}
       # Note: Use of dynamically provisioned PVs is strongly recommend.
       # Disable storageClassName to use dynamically provisioned PVs.
@@ -321,7 +321,7 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 200Mi
+          storage: 1Gi
       {{- if and (eq .Values.cluster.volumes "static") (eq .Values.cluster.deployTo "native") }}
       # Note: Use of dynamically provisioned PVs is strongly recommend.
       # Disable storageClassName to use dynamically provisioned PVs.
